@@ -74,16 +74,20 @@ button {
 
 <form onsubmit="return false;">
   <div class="logo">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Medtronic_logo.svg" alt="Medtronic">
+    <img src="https://1000marcas.net/wp-content/uploads/2021/09/Medtronic-Logo.png" alt="Medtronic">
   </div>
 
   <h2>Solicitud de Servicio Técnico</h2>
 
-  <label>Nombre de la facilidad o solicitante</label>
+  <label>Nombre de quien solicita el servicio</label>
   <input id="nombre" required>
 
-  <label>Número de serie y modelo del equipo</label>
+ <label>Modelo del equipo</label>
   <input id="equipo" required>
+
+
+  <label>Número de serie del equipo</label>
+  <input id="serie" required>
 
   <label>Tipo de servicio / Código de error / Falla</label>
   <textarea id="falla" rows="3" required></textarea>
@@ -108,11 +112,14 @@ function generarMensaje() {
 
 Por favor su ayuda con la siguiente solicitud de servicio:
 
-Nombre de la facilidad o solicitante:
+Nombre de quien solicita el servicio:
 ${nombre.value}
 
-Número de serie y modelo del equipo:
+Modelo del equipo:
 ${equipo.value}
+
+Serie del equipo:
+${serie.value}
 
 Tipo de servicio / Falla:
 ${falla.value}
