@@ -89,7 +89,14 @@ button {
   <label>Número de serie del equipo</label>
   <input id="serie" required>
 
-  <label>Tipo de servicio / Código de error / Falla</label>
+<label for="tipo">Tipo de servicio:</label>
+<select name="tipo" id="tipo">
+  <option value="preventivo">Preventivo</option>
+  <option value="correctivo">Correctivo</option>
+  <option value="cotizacion">Cotizacion</option>
+</select>
+  
+  <label>Falla reportada o código de error.En caso de requerir cotizacion de refacciones indique el codigo de la pieza a cotizar</label>
   <textarea id="falla" rows="3" required></textarea>
 
   <label>Teléfono de contacto</label>
@@ -101,7 +108,7 @@ button {
    <button class="email" onclick="enviarCorreo()">📧 Enviar por correo</button>
   <button class="whatsapp" onclick="enviarWhatsApp()">💬 Enviar por WhatsApp</button>
 
-   <label>Al dar click en botón de Enviar, se abrirá tu aplicación de correo. Revisa que los campos estén correctos. Se enviará el correo a nuestro Call Center</label>
+  
 
   <div class="footer">
     Medtronic · Servicio Técnico México
@@ -123,7 +130,10 @@ ${equipo.value}
 Serie del equipo:
 ${serie.value}
 
-Tipo de servicio / Falla:
+Tipo de servicio:
+${tipo.value}
+
+Falla reportada o código de error:
 ${falla.value}
 
 Teléfono de contacto:
