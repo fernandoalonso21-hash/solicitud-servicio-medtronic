@@ -139,10 +139,12 @@ function enviarCorreo() {
   const cuerpo = encodeURIComponent(generarMensaje());
   window.location.href =
     `mailto:rs.st-mexico@medtronic.com?subject=${encodeURIComponent(asunto)}&body=${cuerpo}`;
-
 }
 
-
+function enviarWhatsApp() {
+  const mensaje = encodeURIComponent(generarMensaje());
+  window.location.href = `https://wa.me/?text=${mensaje}`;
+}
 </script>
 
 </body>
