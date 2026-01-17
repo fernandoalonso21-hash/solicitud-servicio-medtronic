@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solicitud de Servicio Medtronic</title>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #eef2f5;
+  padding: 20px;
+}
+form {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 520px;
+  margin: auto;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+.logo {
+  text-align: center;
+  margin-bottom: 15px;
+}
+.logo img {
+  max-width: 180px;
+}
+h2 {
+  text-align: center;
+  color: #0077C8;
+  margin-bottom: 20px;
+}
+label {
+  font-weight: bold;
+  margin-top: 15px;
+  display: block;
+  color: #333;
+}
+input, textarea {
+  width: 100%;
+  padding: 11px;
+  margin-top: 6px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+button {
+  width: 100%;
+  padding: 15px;
+  margin-top: 15px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  color: #fff;
+  cursor: pointer;
+}
+.email {
+  background-color: #0077C8;
+}
+.whatsapp {
+  background-color: #25D366;
+}
+.footer {
+  text-align: center;
+  font-size: 12px;
+  color: #666;
+  margin-top: 15px;
+}
+</style>
+</head>
+
+<body>
+
+<form onsubmit="return false;">
+  <div class="logo">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Medtronic_logo.svg" alt="Medtronic">
+  </div>
+
+  <h2>Solicitud de Servicio Técnico</h2>
+
+  <label>Nombre de la facilidad o solicitante</label>
+  <input id="nombre" required>
+
+  <label>Número de serie y modelo del equipo</label>
+  <input id="equipo" required>
+
+  <label>Tipo de servicio / Código de error / Falla</label>
+  <textarea id="falla" rows="3" required></textarea>
+
+  <label>Teléfono de contacto</label>
+  <input id="telefono" type="tel" required>
+
+  <label>Correo electrónico de contacto</label>
+  <input id="correo" type="email" required>
+
+  <button class="email" onclick="enviarCorreo()">📧 Enviar por correo</button>
+  <button class="whatsapp" onclick="enviarWhatsApp()">💬 Enviar por WhatsApp</button>
+
+  <div class="footer">
+    Medtronic · Servicio Técnico México
+  </div>
+</form>
+
+<script>
+function generarMensaje() {
+  return `Hola equipo de Servicio Técnico de Medtronic,
+
+Por favor su ayuda con la siguiente solicitud de servicio:
+
+Nombre de la facilidad o solicitante:
+${nombre.value}
+
+Número de serie y modelo del equipo:
+${equipo.value}
+
+Tipo de servicio / Falla:
+${falla.value}
+
+Teléfono de contacto:
+${telefono.value}
+
+Correo electrónico de contacto:
+${correo.value}
+
+De antemano, muchas gracias y quedamos a la espera de su pronta respuesta.`;
+}
+
+function enviarCorreo() {
+  const asunto = "Solicitud de servicio";
+  const cuerpo = encodeURIComponent(generarMensaje());
+  window.location.href =
+    `mailto:rs.st-mexico@medtronic.com?subject=${encodeURIComponent(asunto)}&body=${cuerpo}`;
+}
+
+function enviarWhatsApp() {
+  const mensaje = encodeURIComponent(generarMensaje());
+  window.location.href = `https://wa.me/?text=${mensaje}`;
+}
+</script>
+
+</body>
+</html>
