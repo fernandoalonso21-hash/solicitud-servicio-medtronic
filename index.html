@@ -99,7 +99,8 @@ button {
   <input id="correo" type="email" required>
 
   <button class="email" onclick="enviarCorreo()">📧 Enviar por correo</button>
-  <button class="whatsapp" onclick="enviarWhatsApp()">💬 Enviar por WhatsApp</button>
+
+   <label>Al dar click en botón de Enviar, se abrirá tu aplicación de correo. Revisa que los campos estén correctos. Se enviará el correo a nuestro Call Center</label>
 
   <div class="footer">
     Medtronic · Servicio Técnico México
@@ -140,9 +141,7 @@ function enviarCorreo() {
     `mailto:rs.st-mexico@medtronic.com?subject=${encodeURIComponent(asunto)}&body=${cuerpo}`;
 }
 
-function enviarWhatsApp() {
-  const mensaje = encodeURIComponent(generarMensaje());
-  window.location.href = `https://wa.me/?text=${mensaje}`;
+
 }
 </script>
 
