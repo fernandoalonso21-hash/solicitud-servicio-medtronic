@@ -58,9 +58,6 @@ button {
 .email {
   background-color: #0077C8;
 }
-.whatsapp {
-  background-color: #25D366;
-}
 .footer {
   text-align: center;
   font-size: 12px;
@@ -106,7 +103,7 @@ button {
   <input id="correo" type="email" required>
 
    <button class="email" onclick="enviarCorreo()">📧 Enviar por correo</button>
-  <button class="whatsapp" onclick="enviarWhatsApp()">💬 Enviar por WhatsApp</button>
+ 
 
   
 
@@ -150,11 +147,6 @@ function enviarCorreo() {
   const cuerpo = encodeURIComponent(generarMensaje());
   window.location.href =
     `mailto:rs.st-mexico@medtronic.com?subject=${encodeURIComponent(asunto)}&body=${cuerpo}`;
-}
-
-function enviarWhatsApp() {
-  const mensaje = encodeURIComponent(generarMensaje());
-  window.location.href = `https://wa.me/?text=${mensaje}`;
 }
 </script>
 
